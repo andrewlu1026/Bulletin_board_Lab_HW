@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100 vm-100 bg-dark"> <!--頁面主體、垂直水平居中、視窗、背景黑色-->
+    <div class="container"><!--使用預設容器-->
+        <div class="row justify-content-center"> 
+            <div class="col-md-6"><!--結合row與col置中，空間佔6欄-->
+                <div class="card">
+                    <div class="card-body"><!--新增一張卡片-->
+                        <!--登入容器-->
+                        <div id="signin">
+                            <div class="text text-center mb-3">
+                                <img src="image/LOGO.png" width="250"/>
+                            </div>
+                            <h6 class="card-title text-center">Let the message stick on!</h6>
+                            <!--登入表單-->
+                            <form id="signinForm" onsubmit="return handleSignin(event)">
+                                <div class="mb-3">
+                                    <label for="signin-username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="signin-username">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="signin-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="signin-password">
+                                </div>
+
+                                <div id="signin-error-message" class="text-center text-danger mb-3"></div>
+
+                                <div id="signin-success-message" class="text-center text-success mb-3"></div>
+
+                                <button type="submit" class="btn btn-dark w-100">Sign in</button>
+                                
+                                <p class="text-center mt-3">Don't have an account? <span class="text-primary" role="button" onclick="toggleForm()">Sign up</span></p>
+                            </form>
+                        </div>
+                        <!--登出容器-->
+                        <div id="signup" class="d-none">
+                            <h2 class="card-title text-center">Sign up</h2>
+                            <!--登出表單-->
+                            <form id="signupForm" onsubmit="return handleSignup(event)">
+                                <div class="mb-3">
+                                    <label for="signup-username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="signup-username">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="signup-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="signup-password">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirm-password">
+                                </div>
+                                <div id="signup-message" class="text-center text-danger mb-3"></div>
+                                <button type="submit" class="btn btn-dark w-100">Sign up</button>
+                                <p class="text-center mt-3">Already have an account? <span class="text-primary" role="button" onclick="toggleForm()">Sign in</span></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+    <script src="login.js"></script>
+</body>
+</html>
