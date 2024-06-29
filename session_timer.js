@@ -1,26 +1,26 @@
-
-// 設定閒置時間閾值（例如15分鐘，即900000毫秒）
-const idle = 9000; 
+//設定閒置時間 單位ms
+const idle = 900000; 
 let timeout;
 
-// 重置計時器的函數
+//重置計時器的函數
 function resetTimer() {
+    //先重製上一次的timout
     clearTimeout(timeout);
+    //到達閒置時間，要求重新登入並刪除session、cookie
     timeout = setTimeout(() => {
-        // 如果用戶15分鐘內沒有活動，發送請求到服務器端處理
         fetch('session_timeout.php')
         .then(response => response.json())
         .then(data => {
             if (!data.success) {
-                alert(data.message); // 提示 session 過期
-                window.location.href = 'login.html'; // 重定向到登錄頁面
+                alert(data.message); 
+                window.location.href = 'login.html'; 
             }
         })
         .catch(error => console.error('Error:', error));
     }, idle);
 
-    // 發送請求到伺服器，重新設置 session 和 cookie 過期時間
-    fetch('reset__session_cookie.php')
+    //重新設置 session 和 cookie 過期時間
+    fetch('reset_session_cookie.php')
     .then(response => response.json())
     .then(data => {
         if (!data.success) {
@@ -30,9 +30,7 @@ function resetTimer() {
     .catch(error => console.error('Error:', error));
 }
 
-// 監聽鼠標和鍵盤事件
+//監聽鼠標、鍵盤、刷新頁面事件
 document.addEventListener('mousemove', resetTimer);
 document.addEventListener('keypress', resetTimer);
-
-// 頁面加載時也初始化計時器
 window.onload = resetTimer;
