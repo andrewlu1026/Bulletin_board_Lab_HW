@@ -5,7 +5,7 @@ $request = json_decode(file_get_contents('php://input'), true);
 $username = $request['username'];
 $password = $request['password'];
 
-// 假設存在一個數據庫連接
+
 $conn = new mysqli('localhost', 'root', 'xd405060', 'dbt');
 
 if ($conn->connect_error) {

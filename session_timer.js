@@ -1,6 +1,6 @@
 
 // 設定閒置時間閾值（例如15分鐘，即900000毫秒）
-const idle = 20000; 
+const idle = 9000; 
 let timeout;
 
 // 重置計時器的函數
@@ -18,6 +18,16 @@ function resetTimer() {
         })
         .catch(error => console.error('Error:', error));
     }, idle);
+
+    // 發送請求到伺服器，重新設置 session 和 cookie 過期時間
+    fetch('reset__session_cookie.php')
+    .then(response => response.json())
+    .then(data => {
+        if (!data.success) {
+            console.error('Failed to reset session and cookie');
+        }
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 // 監聽鼠標和鍵盤事件
