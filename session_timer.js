@@ -1,5 +1,5 @@
 //設定閒置時間 單位ms
-const idle = 20000; 
+const idle = 900000; 
 let timeout;
 
 //重置計時器的函數
