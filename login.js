@@ -62,7 +62,7 @@ function controlSignin(event) {
         if (data.success) {
             successMessage.textContent = "login success"
             setTimeout(function() {
-                window.location.href = 'index.html';
+                window.location.href = 'index.php';
             }, 1500);
             document.getElementById('signin-username').value = '';
             document.getElementById('signin-password').value = '';
