@@ -10,4 +10,5 @@ setcookie("username", "", time() - 3600, "/");
 
 //回傳false，alert訊息
 echo json_encode(['success' => false, 'message' => 'Session expired. Please log in again.']);
+
 ?>

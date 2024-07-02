@@ -30,6 +30,7 @@ function resetTimer() {
     .catch(error => console.error('Error:', error));
 }
 
+
 //監聽鼠標、鍵盤、刷新頁面事件
 document.addEventListener('mousemove', resetTimer);
 document.addEventListener('keypress', resetTimer);

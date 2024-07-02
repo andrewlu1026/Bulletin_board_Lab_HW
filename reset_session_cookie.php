@@ -13,4 +13,5 @@ if (isset($_SESSION['username'])) {
 } else {
     echo json_encode(['success' => false, 'message' => 'Session not found']);
 }
+
 ?>
