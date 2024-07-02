@@ -4,6 +4,7 @@ $username = "root";
 $password = "xd405060";
 $dbname = "dbt";
 session_start();
+
 //new一個object資料庫連接
 $conn = new mysqli($servername, $username, $password, $dbname);
 $un=isset($_SESSION['username'])?$_SESSION['username']:'';
@@ -12,7 +13,7 @@ if(empty($un)){
 }
 
 if ($conn->connect_error) {
-    die("連線失敗: " . $conn->connect_error);
+    die("Connection failed:  " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

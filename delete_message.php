@@ -8,7 +8,7 @@ $dbname = "dbt";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("連線失敗: " . $conn->connect_error);
+    die("Connection failed:  " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
