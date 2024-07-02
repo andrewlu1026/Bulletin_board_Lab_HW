@@ -4,8 +4,10 @@ let timeout;
 
 //重置計時器的函數
 function resetTimer() {
+
     //先重製上一次的timout
     clearTimeout(timeout);
+    
     //到達閒置時間，要求重新登入並刪除session、cookie
     timeout = setTimeout(() => {
         fetch('session_timeout.php')

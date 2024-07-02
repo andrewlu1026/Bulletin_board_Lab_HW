@@ -55,8 +55,10 @@ function controlSignin(event) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     })
+    
     //將回應設為JSON
     .then(response => response.json()) 
+    
     //處理回應的data
     .then(data => {
         if (data.success) {
@@ -116,8 +118,10 @@ function controlSignup(event) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     })
+
     //將回應設為JSON
     .then(response => response.json())
+
     //處理回應的data
     .then(data => {
         if (data.success) {

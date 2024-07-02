@@ -4,6 +4,7 @@ session_unset();
 session_destroy();
 session_start();
  $_SESSION['username'] = '';
+ 
 //清除cookie
 setcookie("username", "", time() - 3600, "/");
 

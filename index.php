@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板</title>
+    <title>Stick on | Stick your message on !</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assect/css/style.css" rel="stylesheet">
 </head>
@@ -40,11 +40,14 @@
                 $dbname = "dbt";
                 session_start();
                 $un=isset($_SESSION['username'])?$_SESSION['username']:'';
+                
                 //new一個object資料庫連接
                 $conn = new mysqli($servername, $username, $password, $dbname);
                     $sql = "SELECT * FROM messages ORDER BY created_at DESC";
                     $result = $conn->query($sql);
-                    if ($result->num_rows > 0) {//循環顯示內容
+                    if ($result->num_rows > 0) {
+                        
+                        //循環顯示內容
                         while($row = $result->fetch_assoc()) {
                             eCHO '<BR>';
                             echo  $row["users"].'&nbsp&nbsp<span style="font-size:10px">'.$row["created_at"].'</span>' ;

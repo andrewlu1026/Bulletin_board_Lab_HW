@@ -21,9 +21,11 @@ $sql = "SELECT * FROM users WHERE username = '$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+
     //檢查帳號是否已被使用
     echo json_encode(['success' => false, 'message' => 'Username already exists.']);
 } else {
+    
     //插入新用戶帳號密碼
     $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
     if ($conn->query($sql) === TRUE) {

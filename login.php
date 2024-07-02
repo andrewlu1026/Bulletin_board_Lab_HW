@@ -23,10 +23,13 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
+
     //檢查密碼
     if ($password === $user['password']) {
+
         //設置session和cookie
         $_SESSION['username'] = $username;
+        
         //更新活動時間
         $_SESSION['last_activity'] = time(); 
         setcookie("username", $username, time() + (15 * 60), "/"); 

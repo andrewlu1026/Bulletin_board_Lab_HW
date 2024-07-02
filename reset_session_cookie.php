@@ -3,6 +3,7 @@ session_start();
 
 //檢查 session 是否存在
 if (isset($_SESSION['username'])) {
+    
     //更新session
     $_SESSION['last_activity'] = time();
     
